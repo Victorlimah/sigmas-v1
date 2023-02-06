@@ -1,0 +1,42 @@
+services:
+  postgres_sigmas:
+    image: postgres
+    container_name: postgres_sigmas
+    restart: always
+    ports:
+      - 2345:5432
+    env_file:
+      - back-end/.env
+    volumes:
+      - postgres_sigmas:/var/lib/postgresql/data
+
+  node_sigmas:
+    container_name: node_sigmas
+    build: ./back-end
+    ports:
+      - 5000:5000
+    depends_on:
+      - postgres_sigmas
+    env_file:
+      - back-end/.env
+
+  react_sigmas:
+    container_name: react_sigmas
+    build: ./front-end
+    volumes:
+      - build_react:/var/www/html
+  
+  nginx_sigmas:
+    container_name: nginx_sigmas
+    build: ./nginx
+    ports:
+      - 999:80
+    depends_on:
+      - postgres_sigmas
+      - node_sigmas
+      - react_sigmas
+    volumes:
+      - build_react:/var/www/html
+volumes:
+    postgres_sigmas:
+    build_react:

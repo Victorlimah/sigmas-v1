@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "es6",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "lib": ["es2015", "dom", "es2018.promise"]
+  },
+  "ts-node": {
+    "esm": true
+  }
+}
