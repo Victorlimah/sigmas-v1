@@ -26,7 +26,6 @@ export async function createRoom(req: Request, res: Response) {
 
 export async function addTag(req: Request, res: Response) {
   const tag = req.body;
-  console.log(tag);
   await service.addTag(tag);
   res.sendStatus(201)
 }

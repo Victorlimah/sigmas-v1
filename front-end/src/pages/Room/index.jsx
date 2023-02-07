@@ -20,7 +20,6 @@ export default function Room() {
   useEffect(() => {
     async function getClasses() {
       const response = await getClassesByRoomId(blockId, number);
-      console.log(response);
       setRoom(response);
       setTags(response.tags);
     }
@@ -55,23 +54,14 @@ export default function Room() {
         </S.Day>
 
         {room[day]?.map( (disciplina, index) => {
-
-          // se o proximo elemento tiver o disciplina.name igual ao atual, ele não renderiza
-          // mas deve alterar o schedule usando a antes do "-" do primeiro elemento e a depois do "-" do segundo elemento
-
           let schedule = disciplina.schedule;
           const next = room[day][index + 1];
-          if (next && next.name === disciplina.name) {
+          if (next && next.name === disciplina.name) 
             schedule = `${disciplina?.schedule?.split('-')[0]}-${next?.schedule?.split('-')[1]}`;
-          }
-
-          // se o disciplina.name for igual ao anterior, ele não renderiza
-          if (room[day][index - 1] && room[day][index - 1].name === disciplina.name) {
+          
+          if (room[day][index - 1] && room[day][index - 1].name === disciplina.name) 
             return null;
-          }
-
-
-
+          
           return(
           <S.Card>
             <S.CardHeader>

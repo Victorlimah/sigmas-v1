@@ -159,9 +159,6 @@ export async function getClassesByRoomId(blockId: number, number: string) {
       classes.filter((classItem) => classItem.shedule.day === "SEXTA")
     ),
   };
-
-  console.log(response);
-
   return response;
 }
 
@@ -220,7 +217,6 @@ export async function createClass(data: ClassSpot) {
 
 export async function updateClass(data: any) {
   const { teacherId, teacher, roomId, students, number, block, id} = data;
-  console.log(data);
 
   const t = await prisma.teachers.findFirst({
     where: {
