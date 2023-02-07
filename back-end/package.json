@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon src/configs/server.ts",
-    "start": "npx prisma migrate deploy && node dist/src/configs/server.ts"
+    "start": "node dist/src/configs/server.js"
   },
   "keywords": [],
   "author": "",
