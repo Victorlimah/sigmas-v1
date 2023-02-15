@@ -299,10 +299,10 @@ function roomsFactory(){
 
     { number: "103", capacity: 30, blockId: 2 },
     { number: "107", capacity: 30, blockId: 2 },
-    { number: "201", capacity: 30, blockId: 2 },
-    { number: "202", capacity: 30, blockId: 2 },
-    { number: "203", capacity: 30, blockId: 2 },
-    { number: "204", capacity: 30, blockId: 2 },
+    { number: "201", capacity: 60, blockId: 2 },
+    { number: "202", capacity: 60, blockId: 2 },
+    { number: "203", capacity: 60, blockId: 2 },
+    { number: "204", capacity: 60, blockId: 2 },
     { number: "206", capacity: 30, blockId: 2 },
 
     { number: "101", capacity: 45, blockId: 3 },
@@ -481,8 +481,6 @@ let response: TagRoomsDto[] = [
 { tagId: 0, roomId: 31 },
 { tagId: 4, roomId: 31 },
 ];
-
- //quero rodar cada objeto do array e adicionar + 1 no tagId e no roomId
 
   response.forEach((item) => {
     item.tagId += 1;

@@ -1,22 +1,22 @@
 services:
-  # postgres_sigmas:
-  #   image: postgres
-  #   container_name: postgres_sigmas
-  #   restart: always
-  #   ports:
-  #     - 2345:5432
-  #   env_file:
-  #     - back-end/.env
-  #   volumes:
-  #     - postgres_sigmas:/var/lib/postgresql/data
+  postgres_sigmas:
+    image: postgres
+    container_name: postgres_sigmas
+    restart: always
+    ports:
+      - 2345:5432
+    env_file:
+      - back-end/.env
+    volumes:
+      - postgres_sigmas:/var/lib/postgresql/data
 
   node_sigmas:
     container_name: node_sigmas
     build: ./back-end
     ports:
       - 5000:5000
-    # depends_on:
-    #   - postgres_sigmas
+    depends_on:
+      - postgres_sigmas
     env_file:
       - back-end/.env
 
@@ -30,7 +30,7 @@ services:
     container_name: nginx_sigmas
     build: ./nginx
     ports:
-      - 999:80
+      - 80:80
     depends_on:
       - postgres_sigmas
       - node_sigmas

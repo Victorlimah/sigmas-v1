@@ -250,10 +250,10 @@ function roomsFactory() {
         { number: "206", capacity: 40, blockId: 1 },
         { number: "103", capacity: 30, blockId: 2 },
         { number: "107", capacity: 30, blockId: 2 },
-        { number: "201", capacity: 30, blockId: 2 },
-        { number: "202", capacity: 30, blockId: 2 },
-        { number: "203", capacity: 30, blockId: 2 },
-        { number: "204", capacity: 30, blockId: 2 },
+        { number: "201", capacity: 60, blockId: 2 },
+        { number: "202", capacity: 60, blockId: 2 },
+        { number: "203", capacity: 60, blockId: 2 },
+        { number: "204", capacity: 60, blockId: 2 },
         { number: "206", capacity: 30, blockId: 2 },
         { number: "101", capacity: 45, blockId: 3 },
         { number: "102", capacity: 70, blockId: 3 },
@@ -398,7 +398,6 @@ function roomsTagsFactory() {
         { tagId: 0, roomId: 31 },
         { tagId: 4, roomId: 31 },
     ];
-    //quero rodar cada objeto do array e adicionar + 1 no tagId e no roomId
     response.forEach(function (item) {
         item.tagId += 1;
         item.roomId += 1;
